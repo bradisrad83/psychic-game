@@ -1,0 +1,26 @@
+.container{
+	text-align:  center;
+}
+body{
+	font: sans-serif;
+}
+#wins{
+	font-size: 30px;
+	font: sans-serif;
+	font-style: bold;
+}
+#guesses{
+	font-size: 30px;
+	font: sans-serif;
+	font-style: bold;
+}
+#losses{
+	font-size: 30px;
+	font: sans-serif;
+	font-style: bold;
+}
+#used{
+	font-size: 30px;
+	font: sans-serif;
+	font-style: bold;
+}
