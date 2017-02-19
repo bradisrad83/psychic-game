@@ -34,29 +34,34 @@ var validator = function(userGuess) {
 
 document.onkeyup = function(event) {
     userGuess = event.key;
-    if (userGuess === computerChoice) {
-        alert("Holy cow maybe you really are psychic!?!?!?!?!?!?!")
-        wins++;
-        document.getElementById("wins").innerHTML = "Wins:" + " " + wins;
-        reset();
-    } else {
-        //console.log(guesses);
-        //if validator returns false alert that letter has been used already
-        //if validator returns true continue the logic
-        if (!validator(userGuess)) {
-            alert("You have already chosen this letter, please choose again");
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+        if (userGuess === computerChoice) {
+            alert("Holy cow maybe you really are psychic!?!?!?!?!?!?!")
+            wins++;
+            document.getElementById("wins").innerHTML = "Wins:" + " " + wins;
+            reset();
         } else {
-            guesses--;
-            usedLetters.push(userGuess);
-            document.getElementById("used").innerHTML = "Letters You've Guessed:" + " " + usedLetters;
-            document.getElementById("guesses").innerHTML = "Guesses Left:" + " " + guesses;
-            if (guesses < 1) {
-                alert("I'm sorry you are not a psyhcic after all");
-                losses++;
-                document.getElementById("losses").innerHTML = "Losses:" + " " + losses;
-                reset();
+            //console.log(guesses);
+            //if validator returns false alert that letter has been used already
+            //if validator returns true continue the logic
+            if (!validator(userGuess)) {
+                alert("You have already chosen this letter, please choose again");
+            } else {
+                guesses--;
+                usedLetters.push(userGuess);
+                document.getElementById("used").innerHTML = "Letters You've Guessed:" + " " + usedLetters;
+                document.getElementById("guesses").innerHTML = "Guesses Left:" + " " + guesses;
+                if (guesses < 1) {
+                    alert("I'm sorry you are not a psyhcic after all");
+                    losses++;
+                    document.getElementById("losses").innerHTML = "Losses:" + " " + losses;
+                    reset();
 
+                }
             }
         }
+
+    } else {
+        alert("Please choose a valid letter between A-Z");
     }
 }
